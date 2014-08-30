@@ -1,0 +1,21 @@
+{
+  "name": "node-injector",
+  "version": "0.0.0",
+  "description": "Node dependency injector",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">=0.10.30"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kroid/node-injector.git"
+  },
+  "bugs": {
+    "url": "http://github.com/kroid/node-injector/issues"
+  },
+  "author": "George M Kroid",
+  "license": "BSD"
+}
