@@ -7,16 +7,17 @@ describe('Inject modules', function() {
   var injector;
 
   it('check num of modules', function() {
-    assert.equal(4, Object.keys(injector.injected).length);
+    assert.equal(4, Object.keys(injector.store).length);
   });
 
   it('check dependency injection', function() {
-    assert.equal(42, injector.injected.exampleFunc());
-    assert.equal(90, injector.injected.sum);
+    assert.equal(42, injector.get('exampleFunc')());
+    assert.equal(90, injector.get('sum'));
   })
 
   beforeEach(function(done) {
-    injector = new Injector(path.join(__dirname, 'files'), ['folder', 'exampleFunc.js', '//sum.js']);
+    injector = new Injector();
+    injector.fromFiles(path.join(__dirname, 'files'), ['folder', 'exampleFunc.js', '//sum.js']);
     done();
   });
 });
@@ -26,7 +27,8 @@ describe('Errors', function() {
   it('show dublicate error', function() {
     assert.throws(
       function() {
-        new Injector(path.join(__dirname, 'files'), ['folder', 'dublicate', 'exampleFunc.js']);
+        var injector = new Injector();
+        injector.fromFiles(path.join(__dirname, 'files'), ['folder', 'dublicate', 'exampleFunc.js']);
       },
       /Dublicate filename/
     );
@@ -35,7 +37,8 @@ describe('Errors', function() {
   it('show loop error', function() {
     assert.throws(
       function() {
-        new Injector(path.join(__dirname, 'files', 'loop'));
+        var injector = new Injector();
+        injector.fromFiles(path.join(__dirname, 'files', 'loop'));
       },
       /TypeError/
     );
