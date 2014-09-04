@@ -4,7 +4,7 @@ var assert   = require('assert'),
     Injector = require('./../lib/injector');
 
 
-describe('check raw: add path: ', function() {
+describe('check raw add path: ', function() {
   var injector;
 
   beforeEach(function(done) {
@@ -53,4 +53,17 @@ describe('check raw: add path: ', function() {
     assert.deepEqual(['serviceB'], injector.raw['serviceC'].deps);
     assert.deepEqual(['serviceA'], injector.raw['serviceD'].deps);
   });
+
+  it('file', function() {
+    injector.addPath(path.join(filesDir, 'folder', 'serviceA'));
+    injector.addPath(path.join(filesDir, 'folder', 'anotherFolder', 'serviceB.js'));
+    injector.addPath(path.join(filesDir, 'folder', 'serviceC'), {pass: ['serviceC']});
+    injector.addPath(path.join(filesDir, 'folder', 'anotherFolder', 'add_one', 'serviceD'), {pass: ['serviceD.js']});
+
+    assert.equal(true, injector.raw['serviceA'].value instanceof Function);
+    assert.equal(true, injector.raw['serviceB'].value instanceof Function);
+    assert.equal(true, injector.raw['serviceC'] === undefined);
+    assert.equal(true, injector.raw['serviceD'] === undefined);
+
+  })
 });

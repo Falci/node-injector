@@ -2,7 +2,7 @@ var assert   = require('assert'),
     Injector = require('./../lib/injector');
 
 
-describe('check raw: addConst', function() {
+describe('check raw addConst', function() {
   var injector;
 
   beforeEach(function(done) {
