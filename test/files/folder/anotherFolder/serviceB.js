@@ -1,3 +1,3 @@
-module.exports = function(exampleFunc) {
-  return exampleFunc() - 2;
+module.exports = function(exampleFunc, serviceD) {
+  return exampleFunc() - serviceD();
 };
