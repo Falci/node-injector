@@ -19,6 +19,7 @@
   "author": "George M Kroid",
   "license": "BSD",
   "dependencies": {
+    "clone": "^0.1.18",
     "dependency-graph": "~0.1.0",
     "parse-filepath": "^0.3.0",
     "underscore": "~1.7.0"
