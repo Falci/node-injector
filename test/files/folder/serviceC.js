@@ -1,3 +1,3 @@
 module.exports = function(serviceB) {
-  return serviceB() + 4;
+  return serviceB + 4;
 };
