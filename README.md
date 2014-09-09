@@ -10,10 +10,10 @@ Usage
 app.js:
 ```js
 var Injector = require('node-injector')
-  , rootDir  = __dirname
-  , injector = new Injector(rootDir);
+  , rootPath  = __dirname
+  , injector = new Injector(rootPath);
 
-injector.add(answer, 42);
+injector.set('answer', 42);
 injector.load('services/*.js');
 injector.done(); // preparing
 
@@ -36,19 +36,18 @@ API
 ---------
 
 ```js
-var injector = new Injector(rootDir)
+var injector = new Injector(rootPath)
 ```
 
 ```js
 injector.load('foo/bar/**/*.js')
 injector.load(['foo/bar/**/*.js', 'foo/bar/**/*.json'])
-injector.load(basedir, ['foo/bar/**/*.js', 'foo/bar/**/*.json'])
+injector.load(['foo/bar/**/*.js', 'foo/bar/**/*.json'], {basePath: 'app/baz'})
 ```
 
 ```js
 injector.set(key, value)
-injector.setConst(key, value)
-injector.setService(key, value, [deps])
+injector.setService(key, value, ['dep1', 'dep2', 'depN'])
 ```
 
 ```js
@@ -61,11 +60,10 @@ injector.done()
 
 ```js
 module.exports = function(dep1, dep2) {
-  return {
-    sum: dep1 + dep2
-  }
+  // ...
+  // return anything - object, fn, etc
 }
 
 module.exports['@name'] = 'anyNameSpace.moduleName'
-module.exports['@inject'] = ['numbers.dep1', 'numbers.dep2']
+module.exports['@inject'] = ['dep1', 'foo.dep2']
 ```

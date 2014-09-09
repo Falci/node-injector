@@ -21,6 +21,7 @@
   "dependencies": {
     "clone": "^0.1.18",
     "dependency-graph": "~0.1.0",
+    "glob": "^4.0.5",
     "parse-filepath": "^0.3.0"
   }
 }
