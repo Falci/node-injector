@@ -1,6 +1,6 @@
 {
   "name": "node-injector",
-  "version": "0.3.0",
+  "version": "0.4.0-alpha",
   "description": "Node dependency injector",
   "main": "./lib/injector.js",
   "scripts": {
