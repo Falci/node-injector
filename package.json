@@ -23,5 +23,8 @@
     "dependency-graph": "~0.1.0",
     "glob": "^4.0.5",
     "parse-filepath": "^0.3.0"
+  },
+  "devDependencies": {
+    "express": "^4.9.0"
   }
 }

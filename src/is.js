@@ -33,3 +33,7 @@ module.exports.file = function isFile(_path) {
 module.exports.function = function isFunction(arg) {
   return arg instanceof Function;
 };
+
+module.exports.string = function(arg) {
+  return typeof arg === 'string';
+};

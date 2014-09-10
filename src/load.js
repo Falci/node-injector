@@ -15,8 +15,9 @@ module.exports = load;
  */
 function load(templates, options) {
   var rootPath = this.rootPath,
+      injector = this,
       setService = this.setService,
-      basePath = (options && is.string(options.pasePath)),
+      basePath = (options && is.string(options.pasePath)) ? options.pasePath : '',
       pathList = [];
 
   if (is.string(templates)) { templates = [templates]; }
@@ -35,8 +36,8 @@ function load(templates, options) {
   pathList.map(function(ele) {
     var fn = require(ele),
         name = fn['@name'] || parsePath(ele).basename,
-        deps = fn['@deps'] || [];
+        deps = fn['@inject'] || [];
 
-    setService(name, fn, deps);
+    setService(name, fn, deps, injector.raw);
   });
 }

@@ -10,7 +10,7 @@ function Injector(rootPath) {
   this.lib = {};  // key->value prepared struct. initialized on injector.done()
 }
 
-Injector.prototype.done = function() {};
+Injector.prototype.done = require('./done');
 
 Injector.prototype.get = require('./get');
 
