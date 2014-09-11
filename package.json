@@ -1,8 +1,8 @@
 {
   "name": "node-injector",
-  "version": "0.4.0-alpha",
+  "version": "0.4.0-alpha2",
   "description": "Node dependency injector",
-  "main": "./lib/injector.js",
+  "main": "./src/injector.js",
   "scripts": {
     "test": "mocha"
   },
