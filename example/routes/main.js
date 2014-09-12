@@ -3,5 +3,4 @@ exports = module.exports = function(app, ctrl) {
 };
 
 
-module.exports['@name'] = 'routes.main';
 module.exports['@inject'] = ['app', 'controllers.main'];

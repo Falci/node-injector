@@ -4,5 +4,4 @@ exports = module.exports = function(app, list, show) {
 };
 
 
-module.exports['@name'] = 'routes.users';
 module.exports['@inject'] = ['app', 'controllers.users.list', 'controllers.users.show'];

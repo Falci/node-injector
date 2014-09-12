@@ -47,6 +47,7 @@ injector.load(['foo/bar/**/*.js', 'foo/bar/**/*.json'], {basePath: 'app/baz'})
 
 ```js
 injector.set(key, value)
+injector.setHelper(fn, ['dep1', 'dep2', 'depN'])
 injector.setService(key, value, ['dep1', 'dep2', 'depN'])
 ```
 

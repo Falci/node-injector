@@ -17,13 +17,19 @@ function done() {
   graph
     .overallOrder()
     .map(function(node) {
-      var ele = clone(raw[node]);
+      var ele = raw[node];
 
       switch (ele.type) {
       case 'atom':
         lib[node] = ele.value;
         break;
       case 'service':
+        var args = ele.deps.map(function(dep) {
+          return lib[dep];
+        });
+        lib[node] = ele.value.apply(null, args);
+        break;
+      case 'helper':
         var args = ele.deps.map(function(dep) {
           return lib[dep];
         });

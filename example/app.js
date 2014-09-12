@@ -13,6 +13,8 @@ injector.load([
 ]);
 injector.done();
 
+console.log(injector.lib);
+
 app.listen(injector.get('config.port'), function() {
   console.log('server started on ' + injector.get('config.port') + ' port');
   console.log('environment: ' + injector.get('config.env'));

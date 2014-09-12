@@ -18,4 +18,6 @@ Injector.prototype.load = require('./load');
 
 Injector.prototype.set = require('./set');
 
+Injector.prototype.setHelper = require('./setHelper');
+
 Injector.prototype.setService = require('./setService');
