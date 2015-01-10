@@ -2,7 +2,7 @@ node-injector
 =================
 
 ```js
-npn install --save node-injector
+npm install --save node-injector
 ```
 
 Usage
